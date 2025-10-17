@@ -1,42 +1,42 @@
-import { Package, Group } from "lucide-react";
+import { Package, Group } from 'lucide-react';
 
 export const catalog = [
   {
-    name: "Products",
-    url: "products",
+    name: 'Products',
+    url: 'products',
     icon: Package,
   },
   {
-    name: "Categories",
-    url: "categories",
+    name: 'Categories',
+    url: 'categories',
     icon: Group,
   },
 ];
 
 export const management = [
   {
-    name: "Customers",
-    url: "customers",
+    name: 'Customers',
+    url: 'customers',
     icon: Package,
   },
   {
-    name: "Employees",
-    url: "#",
+    name: 'Employees',
+    url: 'employees',
     icon: Group,
   },
   {
-    name: "Shippers",
-    url: "shippers",
+    name: 'Shippers',
+    url: 'shippers',
     icon: Package,
   },
   {
-    name: "Suppliers",
-    url: "suppliers",
+    name: 'Suppliers',
+    url: 'suppliers',
     icon: Group,
   },
   {
-    name: "Territories",
-    url: "territories",
+    name: 'Territories',
+    url: 'territories',
     icon: Package,
   },
 ];

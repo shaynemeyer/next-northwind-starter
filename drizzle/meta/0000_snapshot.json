@@ -1,969 +1,484 @@
 {
   "id": "00000000-0000-0000-0000-000000000000",
   "prevId": "",
-  "version": "7",
-  "dialect": "postgresql",
+  "version": "6",
+  "dialect": "sqlite",
   "tables": {
-    "public.territories": {
-      "name": "territories",
-      "schema": "",
+    "Categories": {
+      "name": "Categories",
       "columns": {
-        "territory_id": {
-          "name": "territory_id",
-          "type": "varchar(20)",
+        "CategoryID": {
+          "autoincrement": true,
+          "name": "CategoryID",
+          "type": "integer",
           "primaryKey": true,
-          "notNull": true
-        },
-        "territory_description": {
-          "name": "territory_description",
-          "type": "varchar(60)",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "region_id": {
-          "name": "region_id",
-          "type": "smallint",
-          "primaryKey": false,
-          "notNull": true
-        }
-      },
-      "indexes": {},
-      "foreignKeys": {
-        "fk_territories_region": {
-          "name": "fk_territories_region",
-          "tableFrom": "territories",
-          "tableTo": "region",
-          "schemaTo": "public",
-          "columnsFrom": [
-            "region_id"
-          ],
-          "columnsTo": [
-            "region_id"
-          ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
-        }
-      },
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {},
-      "checkConstraints": {},
-      "policies": {},
-      "isRLSEnabled": false
-    },
-    "public.us_states": {
-      "name": "us_states",
-      "schema": "",
-      "columns": {
-        "state_id": {
-          "name": "state_id",
-          "type": "smallint",
-          "primaryKey": true,
-          "notNull": true
-        },
-        "state_name": {
-          "name": "state_name",
-          "type": "varchar(100)",
-          "primaryKey": false,
           "notNull": false
         },
-        "state_abbr": {
-          "name": "state_abbr",
-          "type": "varchar(2)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "state_region": {
-          "name": "state_region",
-          "type": "varchar(50)",
-          "primaryKey": false,
-          "notNull": false
-        }
-      },
-      "indexes": {},
-      "foreignKeys": {},
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {},
-      "checkConstraints": {},
-      "policies": {},
-      "isRLSEnabled": false
-    },
-    "public.customers": {
-      "name": "customers",
-      "schema": "",
-      "columns": {
-        "customer_id": {
-          "name": "customer_id",
-          "type": "varchar(5)",
-          "primaryKey": true,
-          "notNull": true
-        },
-        "company_name": {
-          "name": "company_name",
-          "type": "varchar(40)",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "contact_name": {
-          "name": "contact_name",
-          "type": "varchar(30)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "contact_title": {
-          "name": "contact_title",
-          "type": "varchar(30)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "address": {
-          "name": "address",
-          "type": "varchar(60)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "city": {
-          "name": "city",
-          "type": "varchar(15)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "region": {
-          "name": "region",
-          "type": "varchar(15)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "postal_code": {
-          "name": "postal_code",
-          "type": "varchar(10)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "country": {
-          "name": "country",
-          "type": "varchar(15)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "phone": {
-          "name": "phone",
-          "type": "varchar(24)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "fax": {
-          "name": "fax",
-          "type": "varchar(24)",
-          "primaryKey": false,
-          "notNull": false
-        }
-      },
-      "indexes": {},
-      "foreignKeys": {},
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {},
-      "checkConstraints": {},
-      "policies": {},
-      "isRLSEnabled": false
-    },
-    "public.orders": {
-      "name": "orders",
-      "schema": "",
-      "columns": {
-        "order_id": {
-          "name": "order_id",
-          "type": "smallint",
-          "primaryKey": true,
-          "notNull": true
-        },
-        "customer_id": {
-          "name": "customer_id",
-          "type": "varchar(5)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "employee_id": {
-          "name": "employee_id",
-          "type": "smallint",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "order_date": {
-          "name": "order_date",
-          "type": "date",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "required_date": {
-          "name": "required_date",
-          "type": "date",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "shipped_date": {
-          "name": "shipped_date",
-          "type": "date",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "ship_via": {
-          "name": "ship_via",
-          "type": "smallint",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "freight": {
-          "name": "freight",
-          "type": "real",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "ship_name": {
-          "name": "ship_name",
-          "type": "varchar(40)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "ship_address": {
-          "name": "ship_address",
-          "type": "varchar(60)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "ship_city": {
-          "name": "ship_city",
-          "type": "varchar(15)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "ship_region": {
-          "name": "ship_region",
-          "type": "varchar(15)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "ship_postal_code": {
-          "name": "ship_postal_code",
-          "type": "varchar(10)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "ship_country": {
-          "name": "ship_country",
-          "type": "varchar(15)",
-          "primaryKey": false,
-          "notNull": false
-        }
-      },
-      "indexes": {},
-      "foreignKeys": {
-        "fk_orders_customers": {
-          "name": "fk_orders_customers",
-          "tableFrom": "orders",
-          "tableTo": "customers",
-          "schemaTo": "public",
-          "columnsFrom": [
-            "customer_id"
-          ],
-          "columnsTo": [
-            "customer_id"
-          ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
-        },
-        "fk_orders_employees": {
-          "name": "fk_orders_employees",
-          "tableFrom": "orders",
-          "tableTo": "employees",
-          "schemaTo": "public",
-          "columnsFrom": [
-            "employee_id"
-          ],
-          "columnsTo": [
-            "employee_id"
-          ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
-        },
-        "fk_orders_shippers": {
-          "name": "fk_orders_shippers",
-          "tableFrom": "orders",
-          "tableTo": "shippers",
-          "schemaTo": "public",
-          "columnsFrom": [
-            "ship_via"
-          ],
-          "columnsTo": [
-            "shipper_id"
-          ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
-        }
-      },
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {},
-      "checkConstraints": {},
-      "policies": {},
-      "isRLSEnabled": false
-    },
-    "public.categories": {
-      "name": "categories",
-      "schema": "",
-      "columns": {
-        "category_id": {
-          "name": "category_id",
-          "type": "smallint",
-          "primaryKey": true,
-          "notNull": true
-        },
-        "category_name": {
-          "name": "category_name",
-          "type": "varchar(15)",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "description": {
-          "name": "description",
+        "CategoryName": {
+          "autoincrement": false,
+          "name": "CategoryName",
           "type": "text",
           "primaryKey": false,
           "notNull": false
         },
-        "picture": {
-          "name": "picture",
+        "Description": {
+          "autoincrement": false,
+          "name": "Description",
           "type": "text",
           "primaryKey": false,
           "notNull": false
         }
       },
+      "compositePrimaryKeys": {},
       "indexes": {},
       "foreignKeys": {},
-      "compositePrimaryKeys": {},
       "uniqueConstraints": {},
-      "checkConstraints": {},
-      "policies": {},
-      "isRLSEnabled": false
+      "checkConstraints": {}
     },
-    "public.shippers": {
-      "name": "shippers",
-      "schema": "",
+    "Customers": {
+      "name": "Customers",
       "columns": {
-        "shipper_id": {
-          "name": "shipper_id",
-          "type": "smallint",
+        "CustomerID": {
+          "autoincrement": true,
+          "name": "CustomerID",
+          "type": "integer",
           "primaryKey": true,
-          "notNull": true
+          "notNull": false
         },
-        "company_name": {
-          "name": "company_name",
-          "type": "varchar(40)",
+        "CustomerName": {
+          "autoincrement": false,
+          "name": "CustomerName",
+          "type": "text",
           "primaryKey": false,
-          "notNull": true
+          "notNull": false
         },
-        "phone": {
-          "name": "phone",
-          "type": "varchar(24)",
+        "ContactName": {
+          "autoincrement": false,
+          "name": "ContactName",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Address": {
+          "autoincrement": false,
+          "name": "Address",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "City": {
+          "autoincrement": false,
+          "name": "City",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "PostalCode": {
+          "autoincrement": false,
+          "name": "PostalCode",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Country": {
+          "autoincrement": false,
+          "name": "Country",
+          "type": "text",
           "primaryKey": false,
           "notNull": false
         }
       },
+      "compositePrimaryKeys": {},
       "indexes": {},
       "foreignKeys": {},
-      "compositePrimaryKeys": {},
       "uniqueConstraints": {},
-      "checkConstraints": {},
-      "policies": {},
-      "isRLSEnabled": false
+      "checkConstraints": {}
     },
-    "public.products": {
-      "name": "products",
-      "schema": "",
+    "Employees": {
+      "name": "Employees",
       "columns": {
-        "product_id": {
-          "name": "product_id",
-          "type": "smallint",
+        "EmployeeID": {
+          "autoincrement": true,
+          "name": "EmployeeID",
+          "type": "integer",
           "primaryKey": true,
-          "notNull": true
+          "notNull": false
         },
-        "product_name": {
-          "name": "product_name",
-          "type": "varchar(40)",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "supplier_id": {
-          "name": "supplier_id",
-          "type": "smallint",
+        "LastName": {
+          "autoincrement": false,
+          "name": "LastName",
+          "type": "text",
           "primaryKey": false,
           "notNull": false
         },
-        "category_id": {
-          "name": "category_id",
-          "type": "smallint",
+        "FirstName": {
+          "autoincrement": false,
+          "name": "FirstName",
+          "type": "text",
           "primaryKey": false,
           "notNull": false
         },
-        "quantity_per_unit": {
-          "name": "quantity_per_unit",
-          "type": "varchar(20)",
+        "BirthDate": {
+          "autoincrement": false,
+          "name": "BirthDate",
+          "type": "numeric",
           "primaryKey": false,
           "notNull": false
         },
-        "unit_price": {
-          "name": "unit_price",
-          "type": "real",
+        "Photo": {
+          "autoincrement": false,
+          "name": "Photo",
+          "type": "text",
           "primaryKey": false,
           "notNull": false
         },
-        "units_in_stock": {
-          "name": "units_in_stock",
-          "type": "smallint",
+        "Notes": {
+          "autoincrement": false,
+          "name": "Notes",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "Suppliers": {
+      "name": "Suppliers",
+      "columns": {
+        "SupplierID": {
+          "autoincrement": true,
+          "name": "SupplierID",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": false
+        },
+        "SupplierName": {
+          "autoincrement": false,
+          "name": "SupplierName",
+          "type": "text",
           "primaryKey": false,
           "notNull": false
         },
-        "units_on_order": {
-          "name": "units_on_order",
-          "type": "smallint",
+        "ContactName": {
+          "autoincrement": false,
+          "name": "ContactName",
+          "type": "text",
           "primaryKey": false,
           "notNull": false
         },
-        "reorder_level": {
-          "name": "reorder_level",
-          "type": "smallint",
+        "Address": {
+          "autoincrement": false,
+          "name": "Address",
+          "type": "text",
           "primaryKey": false,
           "notNull": false
         },
-        "discontinued": {
-          "name": "discontinued",
+        "City": {
+          "autoincrement": false,
+          "name": "City",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "PostalCode": {
+          "autoincrement": false,
+          "name": "PostalCode",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Country": {
+          "autoincrement": false,
+          "name": "Country",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Phone": {
+          "autoincrement": false,
+          "name": "Phone",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "Orders": {
+      "name": "Orders",
+      "columns": {
+        "OrderID": {
+          "autoincrement": true,
+          "name": "OrderID",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": false
+        },
+        "CustomerID": {
+          "autoincrement": false,
+          "name": "CustomerID",
           "type": "integer",
           "primaryKey": false,
-          "notNull": true
-        }
-      },
-      "indexes": {},
-      "foreignKeys": {
-        "fk_products_categories": {
-          "name": "fk_products_categories",
-          "tableFrom": "products",
-          "tableTo": "categories",
-          "schemaTo": "public",
-          "columnsFrom": [
-            "category_id"
-          ],
-          "columnsTo": [
-            "category_id"
-          ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
+          "notNull": false
         },
-        "fk_products_suppliers": {
-          "name": "fk_products_suppliers",
-          "tableFrom": "products",
-          "tableTo": "suppliers",
-          "schemaTo": "public",
-          "columnsFrom": [
-            "supplier_id"
-          ],
-          "columnsTo": [
-            "supplier_id"
-          ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
+        "EmployeeID": {
+          "autoincrement": false,
+          "name": "EmployeeID",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "OrderDate": {
+          "autoincrement": false,
+          "name": "OrderDate",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ShipperID": {
+          "autoincrement": false,
+          "name": "ShipperID",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
         }
       },
       "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {
+        "Orders_ShipperID_Shippers_ShipperID_fk": {
+          "name": "Orders_ShipperID_Shippers_ShipperID_fk",
+          "tableFrom": "Orders",
+          "tableTo": "Shippers",
+          "columnsFrom": [
+            "ShipperID"
+          ],
+          "columnsTo": [
+            "ShipperID"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "Orders_CustomerID_Customers_CustomerID_fk": {
+          "name": "Orders_CustomerID_Customers_CustomerID_fk",
+          "tableFrom": "Orders",
+          "tableTo": "Customers",
+          "columnsFrom": [
+            "CustomerID"
+          ],
+          "columnsTo": [
+            "CustomerID"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "Orders_EmployeeID_Employees_EmployeeID_fk": {
+          "name": "Orders_EmployeeID_Employees_EmployeeID_fk",
+          "tableFrom": "Orders",
+          "tableTo": "Employees",
+          "columnsFrom": [
+            "EmployeeID"
+          ],
+          "columnsTo": [
+            "EmployeeID"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
       "uniqueConstraints": {},
-      "checkConstraints": {},
-      "policies": {},
-      "isRLSEnabled": false
+      "checkConstraints": {}
     },
-    "public.suppliers": {
-      "name": "suppliers",
-      "schema": "",
+    "Shippers": {
+      "name": "Shippers",
       "columns": {
-        "supplier_id": {
-          "name": "supplier_id",
-          "type": "smallint",
+        "ShipperID": {
+          "autoincrement": true,
+          "name": "ShipperID",
+          "type": "integer",
           "primaryKey": true,
-          "notNull": true
+          "notNull": false
         },
-        "company_name": {
-          "name": "company_name",
-          "type": "varchar(40)",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "contact_name": {
-          "name": "contact_name",
-          "type": "varchar(30)",
+        "ShipperName": {
+          "autoincrement": false,
+          "name": "ShipperName",
+          "type": "text",
           "primaryKey": false,
           "notNull": false
         },
-        "contact_title": {
-          "name": "contact_title",
-          "type": "varchar(30)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "address": {
-          "name": "address",
-          "type": "varchar(60)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "city": {
-          "name": "city",
-          "type": "varchar(15)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "region": {
-          "name": "region",
-          "type": "varchar(15)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "postal_code": {
-          "name": "postal_code",
-          "type": "varchar(10)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "country": {
-          "name": "country",
-          "type": "varchar(15)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "phone": {
-          "name": "phone",
-          "type": "varchar(24)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "fax": {
-          "name": "fax",
-          "type": "varchar(24)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "homepage": {
-          "name": "homepage",
+        "Phone": {
+          "autoincrement": false,
+          "name": "Phone",
           "type": "text",
           "primaryKey": false,
           "notNull": false
         }
       },
+      "compositePrimaryKeys": {},
       "indexes": {},
       "foreignKeys": {},
-      "compositePrimaryKeys": {},
       "uniqueConstraints": {},
-      "checkConstraints": {},
-      "policies": {},
-      "isRLSEnabled": false
+      "checkConstraints": {}
     },
-    "public.region": {
-      "name": "region",
-      "schema": "",
+    "Products": {
+      "name": "Products",
       "columns": {
-        "region_id": {
-          "name": "region_id",
-          "type": "smallint",
+        "ProductID": {
+          "autoincrement": true,
+          "name": "ProductID",
+          "type": "integer",
           "primaryKey": true,
-          "notNull": true
-        },
-        "region_description": {
-          "name": "region_description",
-          "type": "varchar(60)",
-          "primaryKey": false,
-          "notNull": true
-        }
-      },
-      "indexes": {},
-      "foreignKeys": {},
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {},
-      "checkConstraints": {},
-      "policies": {},
-      "isRLSEnabled": false
-    },
-    "public.customer_demographics": {
-      "name": "customer_demographics",
-      "schema": "",
-      "columns": {
-        "customer_type_id": {
-          "name": "customer_type_id",
-          "type": "varchar(5)",
-          "primaryKey": true,
-          "notNull": true
-        },
-        "customer_desc": {
-          "name": "customer_desc",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false
-        }
-      },
-      "indexes": {},
-      "foreignKeys": {},
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {},
-      "checkConstraints": {},
-      "policies": {},
-      "isRLSEnabled": false
-    },
-    "public.employees": {
-      "name": "employees",
-      "schema": "",
-      "columns": {
-        "employee_id": {
-          "name": "employee_id",
-          "type": "smallint",
-          "primaryKey": true,
-          "notNull": true
-        },
-        "last_name": {
-          "name": "last_name",
-          "type": "varchar(20)",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "first_name": {
-          "name": "first_name",
-          "type": "varchar(10)",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "title": {
-          "name": "title",
-          "type": "varchar(30)",
-          "primaryKey": false,
           "notNull": false
         },
-        "title_of_courtesy": {
-          "name": "title_of_courtesy",
-          "type": "varchar(25)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "birth_date": {
-          "name": "birth_date",
-          "type": "date",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "hire_date": {
-          "name": "hire_date",
-          "type": "date",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "address": {
-          "name": "address",
-          "type": "varchar(60)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "city": {
-          "name": "city",
-          "type": "varchar(15)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "region": {
-          "name": "region",
-          "type": "varchar(15)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "postal_code": {
-          "name": "postal_code",
-          "type": "varchar(10)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "country": {
-          "name": "country",
-          "type": "varchar(15)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "home_phone": {
-          "name": "home_phone",
-          "type": "varchar(24)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "extension": {
-          "name": "extension",
-          "type": "varchar(4)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "photo": {
-          "name": "photo",
+        "ProductName": {
+          "autoincrement": false,
+          "name": "ProductName",
           "type": "text",
           "primaryKey": false,
           "notNull": false
         },
-        "notes": {
-          "name": "notes",
+        "SupplierID": {
+          "autoincrement": false,
+          "name": "SupplierID",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "CategoryID": {
+          "autoincrement": false,
+          "name": "CategoryID",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Unit": {
+          "autoincrement": false,
+          "name": "Unit",
           "type": "text",
           "primaryKey": false,
           "notNull": false
         },
-        "reports_to": {
-          "name": "reports_to",
-          "type": "smallint",
+        "Price": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "Price",
+          "type": "numeric",
           "primaryKey": false,
           "notNull": false
-        },
-        "photo_path": {
-          "name": "photo_path",
-          "type": "varchar(255)",
-          "primaryKey": false,
-          "notNull": false
-        }
-      },
-      "indexes": {},
-      "foreignKeys": {
-        "fk_employees_employees": {
-          "name": "fk_employees_employees",
-          "tableFrom": "employees",
-          "tableTo": "employees",
-          "schemaTo": "public",
-          "columnsFrom": [
-            "reports_to"
-          ],
-          "columnsTo": [
-            "employee_id"
-          ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
         }
       },
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {},
-      "checkConstraints": {},
-      "policies": {},
-      "isRLSEnabled": false
-    },
-    "public.employee_territories": {
-      "name": "employee_territories",
-      "schema": "",
-      "columns": {
-        "employee_id": {
-          "name": "employee_id",
-          "type": "smallint",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "territory_id": {
-          "name": "territory_id",
-          "type": "varchar(20)",
-          "primaryKey": false,
-          "notNull": true
-        }
-      },
       "indexes": {},
       "foreignKeys": {
-        "fk_employee_territories_territories": {
-          "name": "fk_employee_territories_territories",
-          "tableFrom": "employee_territories",
-          "tableTo": "territories",
-          "schemaTo": "public",
+        "Products_SupplierID_Suppliers_SupplierID_fk": {
+          "name": "Products_SupplierID_Suppliers_SupplierID_fk",
+          "tableFrom": "Products",
+          "tableTo": "Suppliers",
           "columnsFrom": [
-            "territory_id"
+            "SupplierID"
           ],
           "columnsTo": [
-            "territory_id"
+            "SupplierID"
           ],
           "onDelete": "no action",
           "onUpdate": "no action"
         },
-        "fk_employee_territories_employees": {
-          "name": "fk_employee_territories_employees",
-          "tableFrom": "employee_territories",
-          "tableTo": "employees",
-          "schemaTo": "public",
+        "Products_CategoryID_Categories_CategoryID_fk": {
+          "name": "Products_CategoryID_Categories_CategoryID_fk",
+          "tableFrom": "Products",
+          "tableTo": "Categories",
           "columnsFrom": [
-            "employee_id"
+            "CategoryID"
           ],
           "columnsTo": [
-            "employee_id"
+            "CategoryID"
           ],
           "onDelete": "no action",
           "onUpdate": "no action"
-        }
-      },
-      "compositePrimaryKeys": {
-        "pk_employee_territories": {
-          "name": "pk_employee_territories",
-          "columns": [
-            "employee_id",
-            "territory_id"
-          ]
         }
       },
       "uniqueConstraints": {},
-      "checkConstraints": {},
-      "policies": {},
-      "isRLSEnabled": false
+      "checkConstraints": {}
     },
-    "public.customer_customer_demo": {
-      "name": "customer_customer_demo",
-      "schema": "",
+    "OrderDetails": {
+      "name": "OrderDetails",
       "columns": {
-        "customer_id": {
-          "name": "customer_id",
-          "type": "varchar(5)",
-          "primaryKey": false,
-          "notNull": true
+        "OrderDetailID": {
+          "autoincrement": true,
+          "name": "OrderDetailID",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": false
         },
-        "customer_type_id": {
-          "name": "customer_type_id",
-          "type": "varchar(5)",
+        "OrderID": {
+          "autoincrement": false,
+          "name": "OrderID",
+          "type": "integer",
           "primaryKey": false,
-          "notNull": true
+          "notNull": false
+        },
+        "ProductID": {
+          "autoincrement": false,
+          "name": "ProductID",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Quantity": {
+          "autoincrement": false,
+          "name": "Quantity",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
         }
       },
+      "compositePrimaryKeys": {},
       "indexes": {},
       "foreignKeys": {
-        "fk_customer_customer_demo_customer_demographics": {
-          "name": "fk_customer_customer_demo_customer_demographics",
-          "tableFrom": "customer_customer_demo",
-          "tableTo": "customer_demographics",
-          "schemaTo": "public",
+        "OrderDetails_ProductID_Products_ProductID_fk": {
+          "name": "OrderDetails_ProductID_Products_ProductID_fk",
+          "tableFrom": "OrderDetails",
+          "tableTo": "Products",
           "columnsFrom": [
-            "customer_type_id"
+            "ProductID"
           ],
           "columnsTo": [
-            "customer_type_id"
+            "ProductID"
           ],
           "onDelete": "no action",
           "onUpdate": "no action"
         },
-        "fk_customer_customer_demo_customers": {
-          "name": "fk_customer_customer_demo_customers",
-          "tableFrom": "customer_customer_demo",
-          "tableTo": "customers",
-          "schemaTo": "public",
+        "OrderDetails_OrderID_Orders_OrderID_fk": {
+          "name": "OrderDetails_OrderID_Orders_OrderID_fk",
+          "tableFrom": "OrderDetails",
+          "tableTo": "Orders",
           "columnsFrom": [
-            "customer_id"
+            "OrderID"
           ],
           "columnsTo": [
-            "customer_id"
+            "OrderID"
           ],
           "onDelete": "no action",
           "onUpdate": "no action"
-        }
-      },
-      "compositePrimaryKeys": {
-        "pk_customer_customer_demo": {
-          "name": "pk_customer_customer_demo",
-          "columns": [
-            "customer_id",
-            "customer_type_id"
-          ]
         }
       },
       "uniqueConstraints": {},
-      "checkConstraints": {},
-      "policies": {},
-      "isRLSEnabled": false
-    },
-    "public.order_details": {
-      "name": "order_details",
-      "schema": "",
-      "columns": {
-        "order_id": {
-          "name": "order_id",
-          "type": "smallint",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "product_id": {
-          "name": "product_id",
-          "type": "smallint",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "unit_price": {
-          "name": "unit_price",
-          "type": "real",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "quantity": {
-          "name": "quantity",
-          "type": "smallint",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "discount": {
-          "name": "discount",
-          "type": "real",
-          "primaryKey": false,
-          "notNull": true
-        }
-      },
-      "indexes": {},
-      "foreignKeys": {
-        "fk_order_details_products": {
-          "name": "fk_order_details_products",
-          "tableFrom": "order_details",
-          "tableTo": "products",
-          "schemaTo": "public",
-          "columnsFrom": [
-            "product_id"
-          ],
-          "columnsTo": [
-            "product_id"
-          ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
-        },
-        "fk_order_details_orders": {
-          "name": "fk_order_details_orders",
-          "tableFrom": "order_details",
-          "tableTo": "orders",
-          "schemaTo": "public",
-          "columnsFrom": [
-            "order_id"
-          ],
-          "columnsTo": [
-            "order_id"
-          ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
-        }
-      },
-      "compositePrimaryKeys": {
-        "pk_order_details": {
-          "name": "pk_order_details",
-          "columns": [
-            "order_id",
-            "product_id"
-          ]
-        }
-      },
-      "uniqueConstraints": {},
-      "checkConstraints": {},
-      "policies": {},
-      "isRLSEnabled": false
+      "checkConstraints": {}
     }
   },
-  "enums": {},
-  "schemas": {},
-  "sequences": {},
-  "roles": {},
-  "policies": {},
   "views": {},
+  "enums": {},
   "_meta": {
     "schemas": {},
     "tables": {},
     "columns": {}
-  },
-  "internal": {
-    "tables": {}
   }
 }
