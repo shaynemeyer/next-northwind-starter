@@ -1,76 +1,31 @@
 "use server";
 
 import { db } from "@/db";
-// TODO: Import necessary schema tables
-// import { customers, products, orders, categories } from '@/drizzle/schema'
+import { customers, products, orders, categories } from "@/drizzle/schema";
+import { sql, or, like, eq } from "drizzle-orm";
 
-// TODO: Import Drizzle helpers
-// import { sql, or, like, eq } from 'drizzle-orm'
+export type SearchResults = {
+  customers: Array<{
+    id: number;
+    name: string | null;
+    city: string | null;
+    type: "customer";
+  }>;
+  products: Array<{
+    id: number;
+    name: string | null;
+    category: string | null;
+    type: "product";
+  }>;
+  orders: Array<{
+    id: number;
+    customerName: string | null;
+    orderDate: string | null;
+    type: "order";
+  }>;
+};
 
-// TODO: Define the SearchResults type
-// export type SearchResults = {
-//   customers: Array<{
-//     id: number
-//     name: string
-//     city: string | null
-//     type: 'customer'
-//   }>
-//   products: Array<{
-//     id: number
-//     name: string
-//     category: string | null
-//     type: 'product'
-//   }>
-//   orders: Array<{
-//     id: number
-//     customerName: string | null
-//     orderDate: string | null
-//     type: 'order'
-//   }>
-// }
-
-// ============================================================================
-// Server Action: globalSearch(query: string)
-// ============================================================================
-// Purpose: Search across customers, products, and orders
-//
-// Requirements:
-// 1. Return empty results if query is less than 2 characters
-// 2. Search customers by: name, contact name, city
-// 3. Search products by: product name
-// 4. Search orders by: order ID (as text) and customer name
-// 5. Limit each category to 5 results
-// 6. Use case-insensitive search (SQL LIKE with % wildcards)
-//
-// Hints:
-// - Pattern for LIKE: `%${query}%`
-// - Use or() to combine multiple conditions
-// - Use Promise.all() to run searches in parallel
-// - For orders, you need to JOIN with customers table
-// - Cast order ID to text for searching: sql`cast(${orders.orderId} as text)`
-//
-// Example search structure:
-// const searchPattern = `%${query}%`
-// const customers = await db
-//   .select({ ... })
-//   .from(customers)
-//   .where(or(
-//     like(customers.customerName, searchPattern),
-//     like(customers.contactName, searchPattern),
-//     like(customers.city, searchPattern)
-//   ))
-//   .limit(5)
-
-// TODO: Remove this temporary type when SearchResults is properly implemented  
-interface TempSearchResults {
-  customers: { id: number; name: string }[];
-  products: { id: number; name: string }[];
-  orders: { id: number; customerName: string }[];
-}
-
-// TODO: Uncomment SearchResults type definition above and update return type
-export async function globalSearch(query: string): Promise<TempSearchResults> {
-  // TODO: Validate query length
+export async function globalSearch(query: string): Promise<SearchResults> {
   if (!query || query.trim().length < 2) {
     return {
       customers: [],
@@ -82,14 +37,61 @@ export async function globalSearch(query: string): Promise<TempSearchResults> {
   const searchPattern = `%${query}%`;
 
   try {
-    // TODO: Implement search logic for all three entity types
-    // Run searches in parallel with Promise.all()
+    const [customerResults, productResults, orderResults] = await Promise.all([
+      // Search customers
+      db
+        .select({
+          id: customers.customerId,
+          name: customers.customerName,
+          city: customers.city,
+        })
+        .from(customers)
+        .where(
+          or(
+            like(customers.customerName, searchPattern),
+            like(customers.contactName, searchPattern),
+            like(customers.city, searchPattern)
+          )
+        )
+        .limit(5),
 
-    // TODO: Return results with type annotations
+      // Search products
+      db
+        .select({
+          id: products.productId,
+          name: products.productName,
+          category: categories.categoryName,
+        })
+        .from(products)
+        .leftJoin(categories, eq(products.categoryId, categories.categoryId))
+        .where(like(products.productName, searchPattern))
+        .limit(5),
+
+      // Search orders
+      db
+        .select({
+          id: orders.orderId,
+          customerName: customers.customerName,
+          orderDate: orders.orderDate,
+        })
+        .from(orders)
+        .leftJoin(customers, eq(orders.customerId, customers.customerId))
+        .where(
+          or(
+            like(sql`cast(${orders.orderId} as text)`, searchPattern),
+            like(customers.customerName, searchPattern)
+          )
+        )
+        .limit(5),
+    ]);
+
     return {
-      customers: [], // Replace with actual results
-      products: [], // Replace with actual results
-      orders: [], // Replace with actual results
+      customers: customerResults.map((c) => ({
+        ...c,
+        type: "customer" as const,
+      })),
+      products: productResults.map((p) => ({ ...p, type: "product" as const })),
+      orders: orderResults.map((o) => ({ ...o, type: "order" as const })),
     };
   } catch (error) {
     console.error("Search error:", error);
