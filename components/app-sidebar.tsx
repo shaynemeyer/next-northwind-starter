@@ -15,6 +15,22 @@ import {
 import { catalog, management } from "@/lib/constants/navItems";
 import { NavManagement } from "./nav-management";
 
+// TODO: Exercise 4 - Add the GlobalSearch component to the sidebar
+//
+// Import at the top:
+// import { GlobalSearch } from "@/components/global-search"
+//
+// Add it in the sidebar, after SidebarHeader and before SidebarContent:
+// <SidebarHeader>
+//   <TeamSwitcher teams={data.teams} />
+// </SidebarHeader>
+//
+// <GlobalSearch />  ← Add this line
+//
+// <SidebarContent>
+//   {/* rest of content */}
+// </SidebarContent>
+
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar variant="inset" {...props}>
