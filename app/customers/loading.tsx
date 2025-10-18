@@ -1,23 +1,45 @@
-// TODO: Import the Skeleton component from shadcn/ui
-// Hint: import { Skeleton } from "@/components/ui/skeleton"
-
-// TODO: Import Card components
-// Hint: import { Card, CardContent, CardHeader } from "@/components/ui/card"
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default function Loading() {
-  // TODO: Create a loading skeleton that matches the customers table layout
-  // Requirements:
-  // 1. Use the same container structure as page.tsx (flex flex-1 flex-col gap-4 p-4)
-  // 2. Wrap content in a Card component
-  // 3. Add a skeleton for the page title in CardHeader
-  // 4. Add a skeleton for the search bar
-  // 5. Add skeleton rows that match the table structure (8-10 rows)
-  // 6. Each row should have skeletons for the table columns
-
   return (
-    <div>
-      {/* Your loading skeleton here */}
-      {/* Tip: Look at app/customers/page.tsx to see the layout you need to match */}
+    <div className="flex flex-1 flex-col gap-4 p-4">
+      <Card>
+        <CardHeader>
+          <Skeleton className="h-8 w-48" />
+        </CardHeader>
+        <CardContent>
+          <div className="space-y-4">
+            {/* Search bar skeleton */}
+            <Skeleton className="h-10 w-full max-w-sm" />
+
+            {/* Table skeleton */}
+            <div className="rounded-md border">
+              {/* Table header */}
+              <div className="border-b bg-muted/50 p-4">
+                <div className="flex gap-4">
+                  <Skeleton className="h-4 w-32" />
+                  <Skeleton className="h-4 w-48" />
+                  <Skeleton className="h-4 w-32" />
+                  <Skeleton className="h-4 w-24" />
+                </div>
+              </div>
+
+              {/* Table rows */}
+              {Array.from({ length: 8 }).map((_, i) => (
+                <div key={i} className="border-b p-4 last:border-0">
+                  <div className="flex gap-4">
+                    <Skeleton className="h-4 w-32" />
+                    <Skeleton className="h-4 w-48" />
+                    <Skeleton className="h-4 w-32" />
+                    <Skeleton className="h-4 w-24" />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 }
