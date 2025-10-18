@@ -1,6 +1,15 @@
-# Next.js Northwind Starter
+# Claude Code Workshop: Next.js Northwind
 
-A modern Next.js 15 application demonstrating a full-stack implementation of the classic Northwind database. This starter showcases best practices for building data-driven applications with React Server Components, SQLite, and Drizzle ORM.
+A comprehensive workshop repository for learning **Claude Code** through hands-on development with a modern Next.js 15 application. This workshop teaches AI-powered development using the classic Northwind database as a foundation, showcasing best practices for building data-driven applications with React Server Components, SQLite, and Drizzle ORM.
+
+## 🎯 Workshop Overview
+
+This repository contains:
+- **Complete Next.js 15 application** with modern React patterns
+- **4 progressive exercises** for hands-on learning
+- **Workshop materials** including setup guides and troubleshooting
+- **Multiple branches** with starter code and solutions
+- **Post-workshop challenges** for continued learning
 
 ## Features
 
@@ -10,6 +19,26 @@ A modern Next.js 15 application demonstrating a full-stack implementation of the
 - **Data Tables**: Interactive tables with sorting, filtering, and pagination using TanStack Table
 - **Server Actions**: Type-safe data fetching with React Server Actions
 - **Dashboard Layout**: Responsive sidebar navigation with collapsible sections
+
+## 🏋️‍♂️ Workshop Exercises
+
+The workshop includes 4 progressive hands-on exercises designed to teach Claude Code through practical development:
+
+| Exercise | Difficulty | Time | Skills |
+|----------|-----------|------|--------|
+| [Exercise 1: Loading State](./exercises/EXERCISE-1.md) | ⭐ Easy | 15-20 min | Next.js loading states, shadcn/ui |
+| [Exercise 2: Employee Details](./exercises/EXERCISE-2.md) | ⭐⭐ Medium | 30-40 min | Dynamic routes, Drizzle relations, server actions |
+| [Exercise 3: Dashboard](./exercises/EXERCISE-3.md) | ⭐⭐⭐ Advanced | 45-60 min | Aggregations, charts, complex queries |
+| [Exercise 4: Global Search](./exercises/EXERCISE-4.md) | ⭐⭐⭐ Bonus | 45-60 min | Full-text search, debouncing, UI state |
+
+Each exercise includes:
+- Clear step-by-step instructions
+- Starter branches with TODO comments
+- Solution branches for reference
+- Claude Code prompt suggestions
+- Common troubleshooting tips
+
+See the [Exercise Overview](./exercises/README.md) for detailed guidance.
 
 ## Tech Stack
 
@@ -22,42 +51,54 @@ A modern Next.js 15 application demonstrating a full-stack implementation of the
 - **Icons**: [Lucide React](https://lucide.dev/)
 - **TypeScript**: Strict mode enabled
 
-## Getting Started
+## 🚀 Getting Started (Workshop Participants)
 
 ### Prerequisites
 
-- Node.js 20 or higher
-- npm or pnpm
+- **Node.js 20+** and npm/pnpm
+- **Claude Code CLI** - Install from [claude.ai/code](https://claude.ai/code)
+- **Git** for branch switching during exercises
+- **VS Code** (recommended) or your preferred editor
 
-### Installation
+### Workshop Setup
 
-1. Clone the repository:
+1. **Clone the workshop repository:**
 ```bash
-git clone <your-repo-url>
+git clone <workshop-repo-url>
 cd next-northwind-starter
 ```
 
-2. Install dependencies:
+2. **Install dependencies:**
 ```bash
 npm install
 ```
 
-3. Initialize the database:
+3. **Initialize the database:**
 ```bash
-# Generate and apply migrations
+# The database comes pre-populated, but if needed:
 npx drizzle-kit generate
 npx drizzle-kit migrate
-
-# Or seed with sample data (if you have a seed script)
-npm run db:seed
 ```
 
-4. Start the development server:
+4. **Verify setup works:**
 ```bash
 npm run dev
 ```
+Open [http://localhost:3000](http://localhost:3000) - you should see the Northwind dashboard.
 
-5. Open [http://localhost:3000](http://localhost:3000) in your browser.
+5. **Test Claude Code integration:**
+```bash
+claude-code --version
+```
+
+### For Self-Paced Learning
+
+If you're not in a live workshop:
+
+1. Start with the [Setup Guide](./docs/SETUP.md)
+2. Review the [Workshop Agenda](./workshop/AGENDA.md) 
+3. Begin with [Exercise 1](./exercises/EXERCISE-1.md)
+4. Use the [Troubleshooting Guide](./docs/TROUBLESHOOTING.md) if needed
 
 ## Available Scripts
 
@@ -83,38 +124,58 @@ npm run dev
 
 ```
 .
-├── app/                      # Next.js app router pages
-│   ├── customers/           # Customer listing page
-│   │   ├── page.tsx        # Server component
-│   │   └── columns.tsx     # Table column definitions
-│   ├── employees/          # Employee listing page
-│   └── products/           # Product listing page
-├── components/
-│   ├── ui/                 # shadcn/ui components
-│   │   ├── data-table.tsx # Generic data table component
-│   │   ├── table.tsx      # Table primitives
-│   │   ├── card.tsx       # Card component
-│   │   └── ...
-│   ├── app-sidebar.tsx    # Main sidebar navigation
-│   ├── nav-catalog.tsx    # Catalog navigation section
-│   └── nav-management.tsx # Management navigation section
-├── db/
-│   ├── index.ts           # Database connection (exports `db`)
-│   └── actions/           # Server actions for data fetching
-│       ├── customers.ts
-│       └── employees.ts
-├── drizzle/
-│   ├── schema.ts          # Database schema definitions
-│   ├── relations.ts       # Relational mappings
-│   └── meta/              # Migration metadata
-├── lib/
-│   ├── constants/
-│   │   └── navItems.ts   # Navigation configuration
-│   └── utils.ts          # Utility functions
-├── docs/
-│   └── diagrams/         # Architecture and database diagrams
-├── drizzle.config.ts     # Drizzle Kit configuration
-└── northwind.db          # SQLite database file
+├── 📱 app/                      # Next.js App Router pages
+│   ├── customers/              # Customer management
+│   │   ├── page.tsx           # Server component
+│   │   └── columns.tsx        # Table column definitions
+│   ├── employees/             # Employee listing
+│   ├── products/              # Product catalog
+│   ├── categories/            # Category management
+│   ├── suppliers/             # Supplier management  
+│   ├── shippers/              # Shipper management
+│   └── territories/           # Territory management
+├── 🧩 components/
+│   ├── ui/                    # shadcn/ui components
+│   │   ├── data-table.tsx    # Generic data table
+│   │   ├── skeleton.tsx      # Loading skeletons
+│   │   └── ...               # Button, Card, Input, etc.
+│   ├── app-sidebar.tsx       # Main navigation sidebar
+│   ├── nav-catalog.tsx       # Product catalog nav
+│   └── nav-management.tsx    # Management nav
+├── 🗄️ db/
+│   ├── index.ts              # Database connection (exports `db`)
+│   └── actions/              # Server Actions
+│       ├── customers.ts      # Customer queries
+│       └── employees.ts      # Employee queries
+├── 📊 drizzle/
+│   ├── schema.ts             # Database table definitions
+│   ├── relations.ts          # Table relationships
+│   └── meta/                 # Migration metadata
+├── 📚 exercises/              # Workshop exercises
+│   ├── README.md             # Exercise overview & instructions
+│   ├── EXERCISE-1.md         # Loading states exercise
+│   ├── EXERCISE-2.md         # Employee details exercise
+│   ├── EXERCISE-3.md         # Dashboard exercise
+│   └── EXERCISE-4.md         # Global search exercise
+├── 🎓 workshop/               # Workshop materials
+│   ├── AGENDA.md             # Workshop schedule
+│   ├── DEMO-SCRIPTS.md       # Facilitator demo scripts
+│   ├── MASTER-CHECKLIST.md   # Workshop checklist
+│   └── PARTICIPANT-HANDOUT.md # Quick reference
+├── 📖 docs/                   # Documentation
+│   ├── SETUP.md              # Environment setup
+│   ├── TROUBLESHOOTING.md    # Common issues
+│   ├── CHEAT-SHEET.md        # Claude Code quick reference
+│   ├── POST-WORKSHOP-CHALLENGES.md # Extra practice
+│   └── diagrams/             # Architecture diagrams
+├── 🛠️ lib/
+│   ├── constants/navItems.ts # Navigation configuration
+│   └── utils.ts              # Utility functions  
+├── 🗃️ scripts/               # Database scripts
+│   └── create.sql            # Database creation script
+├── drizzle.config.ts         # Drizzle Kit configuration
+├── northwind.db              # SQLite database file
+└── CLAUDE.md                 # AI assistant guidance
 ```
 
 ## Architecture Patterns
@@ -208,10 +269,41 @@ Relations are defined in `drizzle/relations.ts` and can be used with Drizzle's r
 
 See [CLAUDE.md](./CLAUDE.md) for detailed development guidelines.
 
-## Contributing
+## 📚 Workshop Resources
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+### For Participants
+- 📋 [Setup Guide](./docs/SETUP.md) - Complete environment setup instructions
+- 🆘 [Troubleshooting](./docs/TROUBLESHOOTING.md) - Common issues and solutions  
+- 📄 [Cheat Sheet](./docs/CHEAT-SHEET.md) - Claude Code commands and shortcuts
+- 🏆 [Post-Workshop Challenges](./docs/POST-WORKSHOP-CHALLENGES.md) - 10 additional practice projects
 
-## License
+### For Facilitators
+- 📅 [Workshop Agenda](./workshop/AGENDA.md) - Complete 3-hour workshop timeline
+- 🎬 [Demo Scripts](./workshop/DEMO-SCRIPTS.md) - Live demo instructions
+- ✅ [Master Checklist](./workshop/MASTER-CHECKLIST.md) - Pre-workshop preparation
+- 📖 [Participant Handout](./workshop/PARTICIPANT-HANDOUT.md) - Quick reference guide
 
-MIT
+### Documentation & Diagrams
+- 🏗️ [Architecture Overview](./docs/diagrams/architecture.md) - System architecture
+- 🔄 [Data Flow](./docs/diagrams/data-flow.md) - Request/response patterns  
+- 🗄️ [Database Schema](./docs/diagrams/database-schema.md) - Northwind ERD
+
+### External Resources
+- 🤖 [Claude Code Documentation](https://docs.anthropic.com/en/docs/claude-code)
+- ⚡ [Next.js 15 Docs](https://nextjs.org/docs)
+- 🗃️ [Drizzle ORM](https://orm.drizzle.team/)
+- 🎨 [shadcn/ui](https://ui.shadcn.com/)
+
+## 🤝 Contributing
+
+This is a workshop repository! Contributions welcome:
+- 🐛 **Bug fixes** - Improve exercise instructions or fix setup issues
+- 📝 **Documentation** - Better explanations or additional examples  
+- 🆕 **New exercises** - Additional Claude Code learning scenarios
+- 🎯 **Improvements** - Better prompts or teaching techniques
+
+Please feel free to submit a Pull Request or open an issue.
+
+## 📄 License
+
+MIT License - Feel free to use this workshop content for educational purposes.

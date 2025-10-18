@@ -13,69 +13,69 @@ erDiagram
     SUPPLIERS ||--o{ PRODUCTS : supplies
 
     CUSTOMERS {
-        int customerId PK
-        string customerName
-        string contactName
-        string address
-        string city
-        string postalCode
-        string country
+        int customerId PK "auto-increment"
+        text customerName
+        text contactName
+        text address
+        text city
+        text postalCode
+        text country
     }
 
     EMPLOYEES {
-        int employeeId PK
-        string lastName
-        string firstName
-        date birthDate
-        string photo
-        string notes
+        int employeeId PK "auto-increment"
+        text lastName
+        text firstName
+        numeric birthDate
+        text photo
+        text notes
     }
 
     SHIPPERS {
-        int shipperId PK
-        string shipperName
-        string phone
+        int shipperId PK "auto-increment"
+        text shipperName
+        text phone
     }
 
     ORDERS {
-        int orderId PK
+        int orderId PK "auto-increment"
         int customerId FK
         int employeeId FK
-        date orderDate
+        numeric orderDate
         int shipperId FK
     }
 
     ORDER_DETAILS {
-        int orderDetailId PK
+        int orderDetailId PK "auto-increment"
         int orderId FK
         int productId FK
         int quantity
     }
 
     PRODUCTS {
-        int productId PK
-        string productName
+        int productId PK "auto-increment"
+        text productName
         int supplierId FK
         int categoryId FK
-        string unit
-        decimal price
+        text unit
+        numeric price
     }
 
     CATEGORIES {
-        int categoryId PK
-        string categoryName
-        string description
+        int categoryId PK "auto-increment"
+        text categoryName
+        text description
     }
 
     SUPPLIERS {
-        int supplierId PK
-        string supplierName
-        string contactName
-        string address
-        string city
-        string postalCode
-        string country
-        string phone
+        int supplierId PK "auto-increment"
+        text supplierName
+        text contactName
+        text address
+        text city
+        text postalCode
+        text country
+        text phone
     }
 ```
 
@@ -136,7 +136,7 @@ Customer orders processed by employees.
   - Shipped by one shipper
   - Contains many order details
 
-#### ORDER_DETAILS
+#### ORDER_DETAILS (orderDetails)
 Line items in an order (junction table between Orders and Products).
 - **Primary Key**: `orderDetailId`
 - **Foreign Keys**:
@@ -171,8 +171,12 @@ Line items in an order (junction table between Orders and Products).
 
 ## Database Implementation
 
-- **ORM**: Drizzle ORM
-- **Database**: SQLite (northwind.db)
-- **Schema Definition**: `drizzle/schema.ts`
-- **Relations**: `drizzle/relations.ts`
-- **Migrations**: Generated in `drizzle/` directory
+- **ORM**: Drizzle ORM with SQLite dialect
+- **Database**: SQLite file-based database (northwind.db)
+- **Schema Definition**: `drizzle/schema.ts` using Drizzle SQLite table definitions
+- **Relations**: `drizzle/relations.ts` using Drizzle relational API
+- **Migrations**: Generated in `drizzle/` directory via `drizzle-kit generate`
+- **Data Types**:
+  - `integer`: Auto-increment primary keys and foreign keys
+  - `text`: String fields (customerName, address, etc.)
+  - `numeric`: Date and decimal fields (birthDate, price, orderDate)
