@@ -1,8 +1,6 @@
-"use server";
-
+import { eq, sql } from "drizzle-orm";
 import { db } from "@/db";
-import { eq } from "drizzle-orm";
-import { employees } from "@/drizzle/schema";
+import { employees, orders, customers } from "@/drizzle/schema";
 
 export async function getAllEmployees() {
   try {
@@ -14,47 +12,46 @@ export async function getAllEmployees() {
   }
 }
 
-export async function getEmployeeById(id: number) {
+export async function getEmployeeById(id: string) {
   try {
-    const employee = await db
-      .select()
-      .from(employees)
-      .where(eq(employees.employeeId, id))
-      .limit(1);
+    const employeeId = parseInt(id);
 
-    return { success: true, data: employee[0] || null };
+    if (isNaN(employeeId)) {
+      return { success: false, error: "Invalid employee ID" };
+    }
+
+    // Fetch employee
+    const employee = await db.query.employees.findFirst({
+      where: eq(employees.employeeId, employeeId),
+    });
+
+    if (!employee) {
+      return { success: false, error: "Employee not found" };
+    }
+
+    // Fetch employee's orders with customer info
+    const employeeOrders = await db
+      .select({
+        orderId: orders.orderId,
+        orderDate: orders.orderDate,
+        shippedDate: sql<string | null>`NULL`.as("shippedDate"),
+        shipCountry: sql<string | null>`NULL`.as("shipCountry"),
+        customerName: customers.customerName,
+      })
+      .from(orders)
+      .leftJoin(customers, eq(orders.customerId, customers.customerId))
+      .where(eq(orders.employeeId, employeeId))
+      .orderBy(orders.orderDate);
+
+    return {
+      success: true,
+      data: {
+        employee,
+        orders: employeeOrders,
+      },
+    };
   } catch (error) {
     console.error("Failed to fetch employee:", error);
-    return { success: false, error: "Failed to fetch employee" };
+    return { success: false, error: "Failed to fetch employee details" };
   }
 }
-
-// TODO: Exercise 2 - Add a new server action: getEmployeeById(id: string)
-//
-// Requirements:
-// 1. Accept an id parameter as a string
-// 2. Validate and convert the id to a number
-// 3. Fetch the employee by ID from the database
-// 4. Fetch all orders for this employee (include customer names)
-// 5. Return format: { success: boolean, data?: { employee, orders }, error?: string }
-// 6. Handle these error cases:
-//    - Invalid ID (not a number)
-//    - Employee not found
-//    - Database errors
-//
-// Hints:
-// - Use parseInt() to convert string to number
-// - Use isNaN() to check if the conversion worked
-// - Use db.query.employees.findFirst() to get the employee
-// - Use db.select().from(orders).leftJoin(customers, ...) for orders with customer names
-// - Use eq() from drizzle-orm for WHERE clauses
-//
-// Example structure:
-// export async function getEmployeeById(id: string) {
-//   try {
-//     // Your implementation here
-//   } catch (error) {
-//     console.error('Failed to fetch employee:', error)
-//     return { success: false, error: 'Failed to fetch employee details' }
-//   }
-// }

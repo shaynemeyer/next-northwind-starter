@@ -1,5 +1,4 @@
-import { sqliteTable, AnySQLiteColumn, integer, text, numeric, foreignKey } from "drizzle-orm/sqlite-core"
-  import { sql } from "drizzle-orm"
+import { sqliteTable, integer, text, numeric } from "drizzle-orm/sqlite-core"
 
 export const categories = sqliteTable("Categories", {
 	categoryId: integer("CategoryID").primaryKey({ autoIncrement: true }),
