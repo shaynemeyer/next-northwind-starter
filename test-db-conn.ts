@@ -1,5 +1,5 @@
-import { db } from "./db/drizzle";
-import { employees } from "./drizzle/schema";
+import { db } from "@/db";
+import { employees } from "@/drizzle/schema";
 
 async function getAllEmployees() {
   try {
@@ -12,9 +12,8 @@ async function getAllEmployees() {
       console.log(
         `${employee.employeeId}: ${employee.firstName} ${employee.lastName}`
       );
-      console.log(`   Title: ${employee.title || "N/A"}`);
-      console.log(`   City: ${employee.city || "N/A"}`);
-      console.log(`   Phone: ${employee.homePhone || "N/A"}`);
+      console.log(`   Birth Date: ${employee.birthDate || "N/A"}`);
+      console.log(`   Notes: ${employee.notes || "N/A"}`);
       console.log("---");
     });
 

@@ -1,8 +1,17 @@
-import { getAllCustomers } from '@/db/actions/customers';
-import { DataTable } from '@/components/ui/data-table';
-import { columns } from './columns';
+import { getAllCustomers } from "@/db/actions/customers";
+import { DataTable } from "@/components/ui/data-table";
+import { columns } from "./columns";
+
+// EXERCISE NOTE: A loading.tsx file has been created for you in this directory.
+// Complete the loading skeleton to match this page's layout.
+//
+// To test your loading state:
+// 1. Uncomment the line below (artificial delay)
+// 2. Navigate to /customers and watch your skeleton appear
+// 3. Remember to comment it out again when done!
 
 async function CustomersPage() {
+  // await new Promise(resolve => setTimeout(resolve, 2000)) // Uncomment to test loading
   const result = await getAllCustomers();
 
   if (!result.success) {
