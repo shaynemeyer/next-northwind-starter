@@ -33,8 +33,8 @@ claude-code: command not found
 
 4. **Verify installation:**
    ```bash
-   which claude-code  # macOS/Linux
-   where claude-code  # Windows
+   which claude  # macOS/Linux
+   where claude  # Windows
    ```
 
 ---
@@ -162,7 +162,7 @@ AccessDeniedException: User is not authorized to perform: bedrock:InvokeModel
 4. **Restart and try again:**
    ```bash
    # Sometimes a fresh start helps
-   claude-code "your prompt"
+   claude "your prompt"
    ```
 
 5. **Check file size:**

@@ -33,7 +33,7 @@ Before the workshop, ensure you have the following installed:
 
 2. **Verify installation:**
    ```bash
-   claude-code --version
+   claude --version
    ```
 
 3. **Configure your API key:**
@@ -186,7 +186,7 @@ Let's verify Claude Code works with your setup:
 
 2. **Run a simple test command:**
    ```bash
-   claude-code "Explain the structure of this Next.js application"
+   claude "Explain the structure of this Next.js application"
    ```
 
 3. **Expected behavior:**
@@ -210,7 +210,7 @@ Run through this checklist to ensure you're ready:
 - [ ] Node.js v20+ installed: `node --version`
 - [ ] npm installed: `npm --version`
 - [ ] Git installed: `git --version`
-- [ ] Claude Code installed: `claude-code --version`
+- [ ] Claude Code installed: `claude --version`
 
 ### API Configuration
 - [ ] API key configured (Anthropic or AWS)
@@ -377,8 +377,8 @@ npm run lint            # Run linting
 npx drizzle-kit studio  # View database
 
 # Claude Code commands
-claude-code "your prompt here"  # Run a task
-claude-code --help              # View help
+claude "your prompt here"  # Run a task
+claude --help              # View help
 
 # Git commands (for exercises)
 git checkout -b exercise-1  # Create new branch

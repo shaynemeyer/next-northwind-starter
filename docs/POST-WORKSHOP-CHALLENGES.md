@@ -40,9 +40,9 @@ Create a detailed order view showing all products in an order with calculated to
 ### Claude Code Prompts to Try
 
 ```bash
-claude-code "Create an order details page at app/orders/[id]/page.tsx that shows order information, order items in a table, and order totals. Include server action to fetch order with all related data."
+"Create an order details page at app/orders/[id]/page.tsx that shows order information, order items in a table, and order totals. Include server action to fetch order with all related data."
 
-claude-code "Add calculations for line totals, subtotal, and order total. Handle discount percentages correctly."
+"Add calculations for line totals, subtotal, and order total. Handle discount percentages correctly."
 ```
 
 ### Bonus Points
@@ -83,9 +83,9 @@ Add a customer details page showing all orders for that customer.
 ### Claude Code Prompts to Try
 
 ```bash
-claude-code "Create a customer details page showing customer info and their complete order history with totals"
+"Create a customer details page showing customer info and their complete order history with totals"
 
-claude-code "Add statistics cards showing total orders, total spent, and average order value for this customer"
+"Add statistics cards showing total orders, total spent, and average order value for this customer"
 ```
 
 ### Bonus Points
@@ -126,11 +126,11 @@ Add functionality to manage product inventory with low stock alerts.
 ### Claude Code Prompts to Try
 
 ```bash
-claude-code "Add a low stock products section to the dashboard showing products below 10 units"
+"Add a low stock products section to the dashboard showing products below 10 units"
 
-claude-code "Create a product details page with stock management. Add a form to update stock levels with reason tracking."
+"Create a product details page with stock management. Add a form to update stock levels with reason tracking."
 
-claude-code "Add visual indicators to the products table showing stock status with color coding"
+"Add visual indicators to the products table showing stock status with color coding"
 ```
 
 ### Bonus Points
@@ -173,11 +173,11 @@ Add comprehensive filtering and sorting to the products page.
 ### Claude Code Prompts to Try
 
 ```bash
-claude-code "Add a comprehensive filter panel to the products page with category, supplier, price range, and stock status filters"
+"Add a comprehensive filter panel to the products page with category, supplier, price range, and stock status filters"
 
-claude-code "Persist all filters in URL search params and add a clear filters button"
+"Persist all filters in URL search params and add a clear filters button"
 
-claude-code "Add filter chips/badges showing active filters with remove functionality"
+"Add filter chips/badges showing active filters with remove functionality"
 ```
 
 ### Bonus Points
@@ -221,11 +221,11 @@ Create a comprehensive analytics dashboard with multiple visualizations.
 ### Claude Code Prompts to Try
 
 ```bash
-claude-code "Create an analytics dashboard with date range selector and multiple charts showing sales trends, top products, and revenue by category"
+"Create an analytics dashboard with date range selector and multiple charts showing sales trends, top products, and revenue by category"
 
-claude-code "Add server actions to calculate sales metrics for different time periods with comparison to previous period"
+"Add server actions to calculate sales metrics for different time periods with comparison to previous period"
 
-claude-code "Create a pie chart component showing revenue distribution by category"
+"Create a pie chart component showing revenue distribution by category"
 ```
 
 ### Bonus Points
@@ -268,11 +268,11 @@ Add user authentication and role-based access control.
 ### Claude Code Prompts to Try
 
 ```bash
-claude-code "Add NextAuth authentication with credentials provider to this project"
+"Add NextAuth authentication with credentials provider to this project"
 
-claude-code "Create a login page and protect all routes requiring authentication"
+"Create a login page and protect all routes requiring authentication"
 
-claude-code "Add role-based access control with admin, manager, and employee roles"
+"Add role-based access control with admin, manager, and employee roles"
 ```
 
 ### Bonus Points
@@ -317,11 +317,11 @@ Enhance the global search with advanced filtering and faceted search.
 ### Claude Code Prompts to Try
 
 ```bash
-claude-code "Enhance the global search to include more fields and highlight matched text in results"
+"Enhance the global search to include more fields and highlight matched text in results"
 
-claude-code "Create a dedicated search results page with pagination and filtering"
+"Create a dedicated search results page with pagination and filtering"
 
-claude-code "Add search history and suggested searches based on previous queries"
+"Add search history and suggested searches based on previous queries"
 ```
 
 ### Bonus Points
@@ -360,11 +360,11 @@ Add export functionality and customizable reports.
 ### Claude Code Prompts to Try
 
 ```bash
-claude-code "Add CSV export functionality to the customers table with proper formatting"
+"Add CSV export functionality to the customers table with proper formatting"
 
-claude-code "Create an Excel export using SheetJS that includes formatting and multiple sheets"
+"Create an Excel export using SheetJS that includes formatting and multiple sheets"
 
-claude-code "Build a report configuration interface where users can select columns and filters"
+"Build a report configuration interface where users can select columns and filters"
 ```
 
 ### Bonus Points
@@ -403,11 +403,11 @@ Add ability to perform actions on multiple records at once.
 ### Claude Code Prompts to Try
 
 ```bash
-claude-code "Add row selection checkboxes to the DataTable component with select all functionality"
+"Add row selection checkboxes to the DataTable component with select all functionality"
 
-claude-code "Create a bulk actions menu that appears when rows are selected"
+"Create a bulk actions menu that appears when rows are selected"
 
-claude-code "Implement bulk delete with confirmation dialog showing affected records"
+"Implement bulk delete with confirmation dialog showing affected records"
 ```
 
 ### Bonus Points
@@ -445,11 +445,11 @@ Add real-time updates and notifications.
 ### Claude Code Prompts to Try
 
 ```bash
-claude-code "Add real-time order updates using Server-Sent Events or polling"
+"Add real-time order updates using Server-Sent Events or polling"
 
-claude-code "Create a notification system with toast notifications for new orders"
+"Create a notification system with toast notifications for new orders"
 
-claude-code "Build an activity feed showing recent actions across the system"
+"Build an activity feed showing recent actions across the system"
 ```
 
 ### Bonus Points
