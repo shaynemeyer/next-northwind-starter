@@ -9,29 +9,15 @@ import {
 } from "@/components/ui/table"
 
 export default function Loading() {
-  // Varied widths for more realistic skeleton appearance
-  const rowWidths = [
-    ["w-8", "w-32", "w-36", "w-28", "w-64"],
-    ["w-8", "w-28", "w-40", "w-24", "w-72"],
-    ["w-8", "w-36", "w-32", "w-32", "w-56"],
-    ["w-8", "w-24", "w-44", "w-28", "w-80"],
-    ["w-8", "w-40", "w-36", "w-20", "w-64"],
-    ["w-8", "w-32", "w-32", "w-24", "w-72"],
-    ["w-8", "w-36", "w-28", "w-32", "w-60"],
-    ["w-8", "w-28", "w-40", "w-28", "w-68"],
-    ["w-8", "w-32", "w-36", "w-24", "w-64"],
-    ["w-8", "w-40", "w-32", "w-32", "w-72"],
-  ];
-
   return (
     <div className="container mx-auto py-10">
-      {/* Page title skeleton with subtle animation */}
-      <Skeleton className="h-8 w-48 mb-6 animate-pulse" />
+      {/* Page title skeleton */}
+      <Skeleton className="h-8 w-48 mb-6" />
 
       <div className="space-y-4">
         {/* Search bar skeleton */}
         <div className="flex items-center">
-          <Skeleton className="h-10 w-full max-w-sm animate-pulse" />
+          <Skeleton className="h-10 w-full max-w-sm" />
         </div>
 
         {/* Table skeleton */}
@@ -47,25 +33,96 @@ export default function Loading() {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {rowWidths.map((widths, i) => (
-                <TableRow key={i}>
-                  <TableCell><Skeleton className={`h-4 ${widths[0]} animate-pulse`} /></TableCell>
-                  <TableCell><Skeleton className={`h-4 ${widths[1]} animate-pulse`} /></TableCell>
-                  <TableCell><Skeleton className={`h-4 ${widths[2]} animate-pulse`} /></TableCell>
-                  <TableCell><Skeleton className={`h-4 ${widths[3]} animate-pulse`} /></TableCell>
-                  <TableCell><Skeleton className={`h-4 ${widths[4]} animate-pulse`} /></TableCell>
-                </TableRow>
-              ))}
+              {/* Row 1 */}
+              <TableRow>
+                <TableCell><Skeleton className="h-4 w-8" /></TableCell>
+                <TableCell><Skeleton className="h-4 w-32" /></TableCell>
+                <TableCell><Skeleton className="h-4 w-36" /></TableCell>
+                <TableCell><Skeleton className="h-4 w-28" /></TableCell>
+                <TableCell><Skeleton className="h-4 w-64" /></TableCell>
+              </TableRow>
+              {/* Row 2 */}
+              <TableRow>
+                <TableCell><Skeleton className="h-4 w-8" /></TableCell>
+                <TableCell><Skeleton className="h-4 w-28" /></TableCell>
+                <TableCell><Skeleton className="h-4 w-40" /></TableCell>
+                <TableCell><Skeleton className="h-4 w-24" /></TableCell>
+                <TableCell><Skeleton className="h-4 w-72" /></TableCell>
+              </TableRow>
+              {/* Row 3 */}
+              <TableRow>
+                <TableCell><Skeleton className="h-4 w-8" /></TableCell>
+                <TableCell><Skeleton className="h-4 w-36" /></TableCell>
+                <TableCell><Skeleton className="h-4 w-32" /></TableCell>
+                <TableCell><Skeleton className="h-4 w-32" /></TableCell>
+                <TableCell><Skeleton className="h-4 w-56" /></TableCell>
+              </TableRow>
+              {/* Row 4 */}
+              <TableRow>
+                <TableCell><Skeleton className="h-4 w-8" /></TableCell>
+                <TableCell><Skeleton className="h-4 w-24" /></TableCell>
+                <TableCell><Skeleton className="h-4 w-44" /></TableCell>
+                <TableCell><Skeleton className="h-4 w-28" /></TableCell>
+                <TableCell><Skeleton className="h-4 w-80" /></TableCell>
+              </TableRow>
+              {/* Row 5 */}
+              <TableRow>
+                <TableCell><Skeleton className="h-4 w-8" /></TableCell>
+                <TableCell><Skeleton className="h-4 w-40" /></TableCell>
+                <TableCell><Skeleton className="h-4 w-36" /></TableCell>
+                <TableCell><Skeleton className="h-4 w-20" /></TableCell>
+                <TableCell><Skeleton className="h-4 w-64" /></TableCell>
+              </TableRow>
+              {/* Row 6 */}
+              <TableRow>
+                <TableCell><Skeleton className="h-4 w-8" /></TableCell>
+                <TableCell><Skeleton className="h-4 w-32" /></TableCell>
+                <TableCell><Skeleton className="h-4 w-32" /></TableCell>
+                <TableCell><Skeleton className="h-4 w-24" /></TableCell>
+                <TableCell><Skeleton className="h-4 w-72" /></TableCell>
+              </TableRow>
+              {/* Row 7 */}
+              <TableRow>
+                <TableCell><Skeleton className="h-4 w-8" /></TableCell>
+                <TableCell><Skeleton className="h-4 w-36" /></TableCell>
+                <TableCell><Skeleton className="h-4 w-28" /></TableCell>
+                <TableCell><Skeleton className="h-4 w-32" /></TableCell>
+                <TableCell><Skeleton className="h-4 w-60" /></TableCell>
+              </TableRow>
+              {/* Row 8 */}
+              <TableRow>
+                <TableCell><Skeleton className="h-4 w-8" /></TableCell>
+                <TableCell><Skeleton className="h-4 w-28" /></TableCell>
+                <TableCell><Skeleton className="h-4 w-40" /></TableCell>
+                <TableCell><Skeleton className="h-4 w-28" /></TableCell>
+                <TableCell><Skeleton className="h-4 w-68" /></TableCell>
+              </TableRow>
+              {/* Row 9 */}
+              <TableRow>
+                <TableCell><Skeleton className="h-4 w-8" /></TableCell>
+                <TableCell><Skeleton className="h-4 w-32" /></TableCell>
+                <TableCell><Skeleton className="h-4 w-36" /></TableCell>
+                <TableCell><Skeleton className="h-4 w-24" /></TableCell>
+                <TableCell><Skeleton className="h-4 w-64" /></TableCell>
+              </TableRow>
+              {/* Row 10 */}
+              <TableRow>
+                <TableCell><Skeleton className="h-4 w-8" /></TableCell>
+                <TableCell><Skeleton className="h-4 w-40" /></TableCell>
+                <TableCell><Skeleton className="h-4 w-32" /></TableCell>
+                <TableCell><Skeleton className="h-4 w-32" /></TableCell>
+                <TableCell><Skeleton className="h-4 w-72" /></TableCell>
+              </TableRow>
             </TableBody>
           </Table>
         </div>
 
         {/* Pagination skeleton */}
         <div className="flex items-center justify-end space-x-2">
-          <Skeleton className="h-4 w-32 animate-pulse" />
+          <Skeleton className="h-4 w-32" />
           <div className="space-x-2 flex">
-            <Skeleton className="h-8 w-20 animate-pulse" />
-            <Skeleton className="h-8 w-16 animate-pulse" />
+            <Skeleton className="h-8 w-20" />
+            <Skeleton className="h-8 w-16" />
           </div>
         </div>
       </div>
