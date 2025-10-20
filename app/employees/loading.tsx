@@ -11,16 +11,16 @@ import {
 export default function Loading() {
   // Varied widths for more realistic skeleton appearance
   const rowWidths = [
-    ["w-8", "w-40", "w-36", "w-48", "w-28", "w-20", "w-28"],
-    ["w-8", "w-36", "w-32", "w-52", "w-24", "w-16", "w-32"],
-    ["w-8", "w-44", "w-40", "w-44", "w-32", "w-24", "w-24"],
-    ["w-8", "w-32", "w-36", "w-56", "w-28", "w-20", "w-36"],
-    ["w-8", "w-48", "w-28", "w-48", "w-24", "w-16", "w-28"],
-    ["w-8", "w-36", "w-44", "w-52", "w-32", "w-20", "w-32"],
-    ["w-8", "w-40", "w-32", "w-48", "w-28", "w-24", "w-28"],
-    ["w-8", "w-44", "w-36", "w-56", "w-24", "w-20", "w-24"],
-    ["w-8", "w-32", "w-40", "w-44", "w-32", "w-16", "w-32"],
-    ["w-8", "w-48", "w-32", "w-52", "w-28", "w-20", "w-28"],
+    ["w-8", "w-32", "w-36", "w-28", "w-64"],
+    ["w-8", "w-28", "w-40", "w-24", "w-72"],
+    ["w-8", "w-36", "w-32", "w-32", "w-56"],
+    ["w-8", "w-24", "w-44", "w-28", "w-80"],
+    ["w-8", "w-40", "w-36", "w-20", "w-64"],
+    ["w-8", "w-32", "w-32", "w-24", "w-72"],
+    ["w-8", "w-36", "w-28", "w-32", "w-60"],
+    ["w-8", "w-28", "w-40", "w-28", "w-68"],
+    ["w-8", "w-32", "w-36", "w-24", "w-64"],
+    ["w-8", "w-40", "w-32", "w-32", "w-72"],
   ];
 
   return (
@@ -40,12 +40,10 @@ export default function Loading() {
             <TableHeader>
               <TableRow>
                 <TableHead><Skeleton className="h-4 w-8" /></TableHead>
-                <TableHead><Skeleton className="h-4 w-32" /></TableHead>
-                <TableHead><Skeleton className="h-4 w-32" /></TableHead>
-                <TableHead><Skeleton className="h-4 w-40" /></TableHead>
                 <TableHead><Skeleton className="h-4 w-24" /></TableHead>
                 <TableHead><Skeleton className="h-4 w-24" /></TableHead>
                 <TableHead><Skeleton className="h-4 w-24" /></TableHead>
+                <TableHead><Skeleton className="h-4 w-16" /></TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -56,8 +54,6 @@ export default function Loading() {
                   <TableCell><Skeleton className={`h-4 ${widths[2]} animate-pulse`} /></TableCell>
                   <TableCell><Skeleton className={`h-4 ${widths[3]} animate-pulse`} /></TableCell>
                   <TableCell><Skeleton className={`h-4 ${widths[4]} animate-pulse`} /></TableCell>
-                  <TableCell><Skeleton className={`h-4 ${widths[5]} animate-pulse`} /></TableCell>
-                  <TableCell><Skeleton className={`h-4 ${widths[6]} animate-pulse`} /></TableCell>
                 </TableRow>
               ))}
             </TableBody>
