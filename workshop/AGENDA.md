@@ -90,7 +90,7 @@ Let me show you a quick example..."
 
 **Key Command to Test:**
 ```bash
-claude-code "Explain the structure of this Next.js application"
+"Explain the structure of this Next.js application"
 ```
 
 #### AWS Bedrock Setup (if applicable) (15 minutes) - 0:35-0:50
@@ -187,9 +187,7 @@ tries to fix it - just like you would."
 
 **Command:**
 ```bash
-claude-code "Add user authentication to this todo app. Each user should 
-have their own todos. Add a simple auth middleware, update the todo model 
-to associate todos with users, and modify the routes to filter todos by 
+"Add user authentication to this todo app. Each user should have their own todos. Add a simple auth middleware, update the todo model to associate todos with users, and modify the routes to filter todos by 
 user. Keep it simple - no passwords needed, just user identification."
 ```
 
@@ -205,7 +203,7 @@ user. Keep it simple - no passwords needed, just user identification."
 
 **Command:**
 ```bash
-claude-code "The test in calculator.test.js is failing. Debug the issue 
+"The test in calculator.test.js is failing. Debug the issue 
 and fix it."
 ```
 
@@ -220,8 +218,7 @@ and fix it."
 
 **Command:**
 ```bash
-claude-code "Explain how the authentication flow works in this todo app. 
-What happens when a request comes in?"
+"Explain how the authentication flow works in this todo app. What happens when a request comes in?"
 ```
 
 #### Demo 5: Refactoring (10 minutes) - 1:35-1:45
@@ -235,9 +232,7 @@ What happens when a request comes in?"
 
 **Command:**
 ```bash
-claude-code "Refactor this todo app to use async/await patterns everywhere 
-instead of synchronous code. Add proper error handling with try-catch blocks 
-in all routes. Make the code more production-ready."
+"Refactor this todo app to use async/await patterns everywhere instead of synchronous code. Add proper error handling with try-catch blocks in all routes. Make the code more production-ready."
 ```
 
 ---

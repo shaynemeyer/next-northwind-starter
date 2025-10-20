@@ -88,7 +88,7 @@ Open [http://localhost:3000](http://localhost:3000) - you should see the Northwi
 
 5. **Test Claude Code integration:**
 ```bash
-claude-code --version
+claude --version
 ```
 
 ### For Self-Paced Learning

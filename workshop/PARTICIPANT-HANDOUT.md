@@ -50,7 +50,7 @@ Complete these steps BEFORE the workshop:
 Test that Claude Code works:
 ```bash
 cd next-northwind-starter
-claude-code "Explain the structure of this Next.js application"
+"Explain the structure of this Next.js application"
 ```
 
 If you see an explanation of the app structure, you're ready! ✅
@@ -75,7 +75,7 @@ npm run dev
 npx drizzle-kit studio
 
 # Basic Claude Code usage
-claude-code "your prompt here"
+claude "your prompt here"
 
 # Check out exercise
 git checkout exercise-1-loading-state
@@ -169,14 +169,12 @@ Unlike ChatGPT, Claude Code works directly in your codebase.
 
 ❌ **Too Vague:**
 ```bash
-claude-code "Add a new page"
+"Add a new page"
 ```
 
 ✅ **Good:**
 ```bash
-claude-code "Create a new suppliers page at app/suppliers/page.tsx 
-following the existing pattern from the customers page. Include server 
-actions, columns, and data table with search functionality."
+"Create a new suppliers page at app/suppliers/page.tsx following the existing pattern from the customers page. Include server actions, columns, and data table with search functionality."
 ```
 
 ### Pro Tips
@@ -193,26 +191,26 @@ actions, columns, and data table with search functionality."
 
 ### Create New Page
 ```bash
-claude-code "Create a new [entity] page following the existing 
+"Create a new [entity] page following the existing 
 pattern from [reference page]. Include server action, columns, and 
 data table."
 ```
 
 ### Add Server Action
 ```bash
-claude-code "Add a server action in db/actions/[entity].ts to 
+"Add a server action in db/actions/[entity].ts to 
 fetch [entity] by ID with related [relations]. Include error handling."
 ```
 
 ### Debug Issue
 ```bash
-claude-code "Debug the issue in [file] where [description]. 
+"Debug the issue in [file] where [description]. 
 Explain the problem and provide a fix."
 ```
 
 ### Add Feature
 ```bash
-claude-code "Add [feature] to [component/page]. Requirements: 
+"Add [feature] to [component/page]. Requirements: 
 [list requirements]. Follow existing patterns."
 ```
 

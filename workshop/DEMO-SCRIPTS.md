@@ -51,7 +51,7 @@ app.listen(3000, () => console.log('Server running on port 3000'));
 ### Command to Run
 
 ```bash
-claude-code "Add proper error handling to the /api/users/:id endpoint. Handle invalid IDs, add try-catch blocks, and return appropriate HTTP status codes."
+"Add proper error handling to the /api/users/:id endpoint. Handle invalid IDs, add try-catch blocks, and return appropriate HTTP status codes."
 ```
 
 ### What to Highlight
@@ -179,7 +179,7 @@ module.exports = {
 ### Command to Run
 
 ```bash
-claude-code "Add user authentication to this todo app. Each user should have their own todos. Add a simple auth middleware that checks for a user ID in headers, update the todo model to associate todos with users, and modify the routes to filter todos by user. Keep it simple - no passwords needed, just user identification."
+"Add user authentication to this todo app. Each user should have their own todos. Add a simple auth middleware that checks for a user ID in headers, update the todo model to associate todos with users, and modify the routes to filter todos by user. Keep it simple - no passwords needed, just user identification."
 ```
 
 ### What to Highlight
@@ -276,7 +276,7 @@ describe('Calculator', () => {
 ### Command to Run
 
 ```bash
-claude-code "The test in calculator.test.js is failing. Debug the issue and fix it."
+"The test in calculator.test.js is failing. Debug the issue and fix it."
 ```
 
 ### What to Highlight
@@ -312,7 +312,7 @@ function calculateTotal(price, discountPercent, taxRate) {
 **Command:**
 
 ```bash
-claude-code "Add more test cases to ensure this works correctly with edge cases like 0% discount and 0% tax"
+"Add more test cases to ensure this works correctly with edge cases like 0% discount and 0% tax"
 ```
 
 ### Key Takeaway
@@ -340,7 +340,7 @@ Use the todo app from Demo 2 (after modifications).
 ### Command to Run
 
 ```bash
-claude-code "Explain how the authentication flow works in this todo app. What happens when a request comes in?"
+"Explain how the authentication flow works in this todo app. What happens when a request comes in?"
 ```
 
 ### What to Highlight
@@ -372,7 +372,7 @@ Claude Code will provide a detailed explanation:
 **Show interactive capability:**
 
 ```bash
-claude-code "What would we need to change if we wanted to add password-based authentication?"
+"What would we need to change if we wanted to add password-based authentication?"
 ```
 
 ### Key Takeaway
@@ -400,7 +400,7 @@ Use the todo app from Demo 2.
 ### Command to Run
 
 ```bash
-claude-code "Refactor this todo app to use async/await patterns everywhere instead of synchronous code. Add proper error handling with try-catch blocks in all routes. Make the code more production-ready."
+"Refactor this todo app to use async/await patterns everywhere instead of synchronous code. Add proper error handling with try-catch blocks in all routes. Make the code more production-ready."
 ```
 
 ### What to Highlight

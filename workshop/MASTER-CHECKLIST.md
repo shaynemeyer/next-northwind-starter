@@ -289,7 +289,7 @@ Hi everyone! Here's what you need to do before the workshop:
    export ANTHROPIC_API_KEY='your-key-here'
 
 8. Test Claude Code:
-   claude-code "Explain the structure of this Next.js application"
+   "Explain the structure of this Next.js application"
 
 If you have any issues, check docs/SETUP.md or post in [channel].
 
